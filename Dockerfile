@@ -8,11 +8,11 @@ ENV ELASTICSEARCH_PORT 9200
 ENV ELASTALERT_INDEX_REPLICAS 1
 
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get -y install build-essential python-setuptools python2.7 python2.7-dev libssl-dev git tox curl
-RUN easy_install pip \
-    && git clone https://github.com/Yelp/elastalert.git \
+    && apt-get -y install build-essential python-setuptools python2.7 python2.7-dev libssl-dev git tox curl python-pip
+RUN git clone https://github.com/Yelp/elastalert.git \
     && cd /elastalert/ && pip install -r requirements.txt \
     && pip install python-dateutil==2.6.0 \
+    && pip install --upgrade cryptography \
     && cd /elastalert/ && python setup.py install
 RUN mkdir /etc/elastalert \
     && useradd -ms /bin/bash elastalert \
