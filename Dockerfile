@@ -6,6 +6,10 @@ ENV ELASTICSEARCH_HOST elasticsearch
 ENV ELASTICSEARCH_PORT 9200
 # Number of replicas
 ENV ELASTALERT_INDEX_REPLICAS 1
+# Elasticsearch username for basic auth
+ENV ELASTICSEARCH_USER ""
+# Elasticsearch password for basic auth
+ENV ELASTICSEARCH_PASSWORD
 
 RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install build-essential python-setuptools python2.7 python2.7-dev libffi-dev libssl-dev git tox curl python-pip git
