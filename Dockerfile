@@ -3,7 +3,7 @@ FROM python:3.6-alpine
 LABEL description="ElastAlert"
 LABEL maintainer="Justin Henderson - Cloned from Jason Ertel's elastalert dockerfile"
 
-ARG ELASTALERT_VERSION=0.2.1
+ARG ELASTALERT_VERSION=0.2.2
 
 RUN apk --update upgrade && \
     apk add gcc libffi-dev musl-dev python-dev openssl-dev tzdata libmagic git && \
