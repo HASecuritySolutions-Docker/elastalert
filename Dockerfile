@@ -6,11 +6,11 @@ LABEL maintainer="Justin Henderson - Cloned from Jason Ertel's elastalert docker
 ARG ELASTALERT_VERSION=0.2.4
 
 RUN apk --update upgrade && \
-    apk add gcc libffi-dev musl-dev python-dev openssl-dev tzdata libmagic git && \
+    apk add gcc libffi-dev musl-dev openssl-dev tzdata libmagic git && \
     rm -rf /var/cache/apk/*
 
 RUN pip install elastalert==${ELASTALERT_VERSION} && \
-    apk del gcc libffi-dev musl-dev python-dev openssl-dev
+    apk del gcc libffi-dev musl-dev openssl-dev
 
 RUN git clone https://github.com/Nclose-ZA/elastalert_hive_alerter.git \
     && cd elastalert_hive_alerter \
