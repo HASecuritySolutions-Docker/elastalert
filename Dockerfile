@@ -26,6 +26,5 @@ RUN mkdir -p /opt/elastalert/config && \
 
 ENV TZ "UTC"
 
-VOLUME [ "/opt/config", "/opt/rules" ]
 WORKDIR /opt/elastalert
 ENTRYPOINT ["/opt/elastalert/run.sh"]
